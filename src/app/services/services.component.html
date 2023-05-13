@@ -1,0 +1,69 @@
+<mat-card>
+    <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="onClickSubmit()" autocomplete="off">
+            <!-- Customer Name -->
+            <label for="firstname">First Name</label>
+            <input type="text" id="firstname" formControlName="firstname" value="firstname" placeholder="Your name.." [class.is-invalid]="firstname.invalid && (firstname.dirty || firstname.touched)" />
+            <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)"
+            class="invalid-feedback">
+            <div *ngIf="firstname.errors?.['required']">
+              Please enter first name.
+            </div>
+            <div *ngIf="firstname.errors?.['minlength']">
+              This field must have at least 6 character.
+            </div>
+            <div *ngIf="firstname.errors?.['pattern']">
+              Special Characters not allowed.
+            </div>
+            <div *ngIf="firstname.errors?.['maxlength']">
+              This field must have at most 25 characters.
+            </div>https://web.whatsapp.com/ff5cd323-be3d-4139-bd51-79d7712ad79d
+          </div>
+          
+          <!-- Contact Number -->
+          <label for="contactnumber">Contact Number</label>
+          <input type="text" id="contactnumber" formControlName="contactnumber" value="contactnumber" placeholder="Your Contact Number" [class.is-invalid]="contactnumber.invalid && (contactnumber.dirty || contactnumber.touched)" />
+          <div *ngIf="contactnumber.invalid && (contactnumber.dirty || contactnumber.touched)" class="invalid-feedback">
+            <div *ngIf="contactnumber.errors?.['required']">
+              Please enter mobile number.
+            </div>
+            <div *ngIf="contactnumber.errors?.['pattern']">
+              Please enter valid Mobile number
+            </div>
+          </div>
+          
+          <!-- Address -->
+          <label for="address">Address</label>
+          <input type="text" id="address" formControlName="address" value="address" placeholder="Your Address" [class.is-invalid]="address.invalid && (address.dirty || address.touched)" />
+          <div *ngIf="address.invalid && (address.dirty || address.touched)" class="invalid-feedback">
+            <div *ngIf="address.errors?.['required']">
+              Please enter your address.
+            </div>
+          </div>
+          
+          <!-- Regno -->
+          <label for="regno">Registration Number</label>
+          <input type="text" id="regno" formControlName="regno" value="regno"  placeholder="Enter Registration Number" [class.is-invalid]="regno.invalid && (regno.dirty || regno.touched)" />
+          <div *ngIf="regno.invalid && (regno.dirty || regno.touched)" class="invalid-feedback">
+            <div *ngIf="regno.errors?.['required']">
+              Please enter your registeration number.
+            </div>
+          </div>
+          
+          <!-- Vehicle Model -->
+          <label for="vehiclemodel">Vehicle Model</label>
+          <input type="text" id="vehiclemodel" formControlName="vehiclemodel" value="vehiclemodel" placeholder="Enter Vehicle Model" [class.is-invalid]="vehiclemodel.invalid && (vehiclemodel.dirty || vehiclemodel.touched)" />
+          <div *ngIf="vehiclemodel.invalid && (vehiclemodel.dirty || vehiclemodel.touched)" class="invalid-feedback">
+            <div *ngIf="vehiclemodel.errors?.['required']">
+              Please enter your vehicle model.
+            </div>
+          </div>
+          
+          <!-- Submit -->
+          <div class="pt-3 mb-4" style="text-align: center;">
+            <button class="btn btn-primary btn-lg btn-block" type="submit">SUBMIT</button>
+          </div>
+          
+        </form>
+    </mat-card-content>
+  </mat-card>

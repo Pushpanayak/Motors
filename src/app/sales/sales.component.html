@@ -1,0 +1,141 @@
+<mat-card class="card">
+  <mat-card-content class="card">
+    <form [formGroup]="form" (ngSubmit)="onClickSubmit()" autocomplete="off">
+      <!-- Customer Name -->
+      <label for="firstname">Customer Name</label>
+      <input type="text" id="firstname" formControlName="firstname" value="firstname" placeholder="Your name.." [class.is-invalid]="firstname.invalid && (firstname.dirty || firstname.touched)" />
+      <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)"
+      class="invalid-feedback">
+      <div *ngIf="firstname.errors?.['required']">
+        Please enter first name.
+      </div>
+      <div *ngIf="firstname.errors?.['minlength']">
+        This field must have at least 6 character.
+      </div>
+      <div *ngIf="firstname.errors?.['pattern']">
+        Special Characters not allowed.
+      </div>
+      <div *ngIf="firstname.errors?.['maxlength']">
+        This field must have at most 25 characters.
+      </div>
+    </div>
+    
+    <!-- Contact Number -->
+    <label for="contactnumber">Contact Number</label>
+    <input type="text" id="contactnumber" (input)="inputValidator($event)" formControlName="contactnumber" value="contactnumber" placeholder="Your Contact Number" [class.is-invalid]="contactnumber.invalid && (contactnumber.dirty || contactnumber.touched)" />
+    <div *ngIf="contactnumber.invalid && (contactnumber.dirty || contactnumber.touched)" class="invalid-feedback">
+      <div *ngIf="contactnumber.errors?.['required']">
+        Please enter mobile number.
+      </div>
+      <div *ngIf="contactnumber.errors?.['pattern']">
+        Please enter valid Mobile number
+      </div>
+    </div>
+    
+    <!-- Address -->
+    <label for="address">Address</label>
+    <input type="text" id="address" formControlName="address" value="address" placeholder="Your Address" [class.is-invalid]="address.invalid && (address.dirty || address.touched)" />
+    <div *ngIf="address.invalid && (address.dirty || address.touched)" class="invalid-feedback">
+      <div *ngIf="address.errors?.['required']">
+        Please enter your address.
+      </div>
+    </div>
+
+    <!-- DOB -->
+    <label for="birthday">Date of Birth</label><br>
+    <input style="width: 100%;" type="date" id="birthday" formControlName="birthday" value="birthday" placeholder="Your Birthday" [class.is-invalid]="birthday.invalid && (birthday.dirty || birthday.touched)" /><br><br/>
+    <div *ngIf="birthday.invalid && (birthday.dirty || birthday.touched)" class="invalid-feedback">
+      <div *ngIf="birthday.errors?.['required']">
+        Please enter your birthday.
+      </div>
+    </div>
+    
+    <!-- Regno -->
+    <label for="regno">Registration Number</label>
+    <input type="text" id="regno" formControlName="regno" value="regno"  placeholder="Enter Registration Number" [class.is-invalid]="regno.invalid && (regno.dirty || regno.touched)" />
+    <div *ngIf="regno.invalid && (regno.dirty || regno.touched)" class="invalid-feedback">
+      <div *ngIf="regno.errors?.['required']">
+        Please enter your registeration number.
+      </div>
+    </div>
+    
+    <!-- Vehicle Model -->
+    <label for="vehiclemodel">Vehicle Model</label>
+    <input type="text" id="vehiclemodel" formControlName="vehiclemodel" value="vehiclemodel" placeholder="Enter Vehicle Model" [class.is-invalid]="vehiclemodel.invalid && (vehiclemodel.dirty || vehiclemodel.touched)" />
+    <div *ngIf="vehiclemodel.invalid && (vehiclemodel.dirty || vehiclemodel.touched)" class="invalid-feedback">
+      <div *ngIf="vehiclemodel.errors?.['required']">
+        Please enter your vehicle model.
+      </div>
+    </div>
+    
+    <!-- Vehicle Cost on Road-->
+    <label for="vehiclecost">Vehicle Cost on Road</label>
+    <input type="text" id="vehiclecost" (input)="inputValidator($event)" formControlName="vehiclecost" value="vehiclecost" placeholder="Enter Vehicle Cost" [class.is-invalid]="vehiclecost.invalid && (vehiclecost.dirty || vehiclecost.touched)" />
+    <div *ngIf="vehiclecost.invalid && (vehiclecost.dirty || vehiclecost.touched)" class="invalid-feedback">
+      <div *ngIf="vehiclecost.errors?.['required']">
+        Please enter vehicle cost on road.
+      </div>
+    </div>
+    
+    <!-- loan type-->
+    <label for="loantype">Select Loan type</label>
+    <select id="loantype" formControlName="loantype" value="loantype">
+      <option value="Loan">Loan</option>
+      <option value="Full Cash">Full Cash</option>
+    </select>
+    
+    <label> Additional Details </label><br/>
+
+    <div class="form-group col-12">
+ <input type="file"
+ id="file"
+ #userPhoto
+ (change)="onFileSelected($event)"
+ name="image"
+ autocomplete="off"
+ />
+</div>
+    
+    <!-- Address Proof -->
+    
+    <label for="aadhar" >1. Aadhar Card Proof</label> &nbsp; &nbsp;
+    <input type="file" id="aadhar" name="aadhar" accept="image/png, image/gif, image/jpeg"><br><br>
+    
+    <!-- PAN -->
+    
+    <label for="pan" >2. PAN Card Proof</label> &nbsp; &nbsp;
+    <input type="file" id="pan" name="pan" accept="image/png, image/gif, image/jpeg"><br><br>
+    
+    <!-- Home Address Proof -->
+    
+    <label for="addressproof" >3. Home Address Proof</label> &nbsp; &nbsp;
+    <input type="file" id="addressproof" name="addressproof" accept="image/png, image/gif, image/jpeg"><br><br>
+    
+    <!-- BESCOM Bill -->
+    
+    <label for="bescom" >4. BESCOM Proof</label> &nbsp; &nbsp;
+    <input type="file" id="bescom" name="bescom" accept="image/png, image/gif, image/jpeg"><br><br>
+    
+    <!-- Working ID -->
+    
+    <label for="workingid" >5. Working ID Proof</label> &nbsp; &nbsp;
+    <input type="file" id="workingid" name="workingid" accept="image/png, image/gif, image/jpeg"><br><br>
+    
+    <!-- Salary Slips -->
+    
+    <label for="salaryslip" >6. Salary Slip Proof</label> &nbsp; &nbsp;
+    <input type="file" id="salaryslip" name="salaryslip" accept="image/png, image/gif, image/jpeg" multiple><br><br>
+
+    <!-- Vehicle Delivery -->
+    
+    <label for="vehicledelivery" >7. Vehicle Delivery Proof</label> &nbsp; &nbsp;
+    <input type="file" id="vehicledelivery" name="vehicledelivery" accept="image/png, image/gif, image/jpeg" multiple><br><br>
+    
+    <!-- Submit -->
+    <div class="pt-3 mb-4" style="text-align: center;">
+      <button class="btn btn-primary btn-lg btn-block" type="submit">SUBMIT</button>
+    </div>
+    
+  </form>
+</mat-card-content>
+</mat-card>
